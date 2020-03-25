@@ -1,20 +1,14 @@
-{% load material_form %}
-<!doctype html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    {% include 'material/includes/material_css.html' %}
-    {% include 'material/includes/material_js.html' %}
-</head>
-<body>
-   <form  method="POST" enctype="multipart/form-data">
+{% extends 'base.html' %}
+{% load bootstrap %}
+
+{% block title %} Adicionar {% endblock %}
+
+{% block main %}
+    <h3>Novo Cliente</h3>
+   <form  method="POST" enctype="multipart/form-data" >
        {%csrf_token %}
-        {% form form=form %}{% endform %}
-       <button type="submit">Salvar</button>
+        {{ form|bootstrap }}
+       <button type="submit" class="btn btn-primary">Salvar</button>
    </form>
-</body>
-</html>
+
+{% endblock %}
